@@ -1,0 +1,103 @@
+<div class="actionWithCard"> 
+    <a href="/edit/{{data.patient.id}}" target="blank" class="btn-link">Редактировать</a>
+    <a onClick="javascript:CallPrint('print-content');" title="Распечатать проект" class="btn-link">Распечатать</a>
+</div>
+<div id="print-content">
+    <div class="observeCard mt-1">
+        <h3 class="">Контрольная карта диспансерного наблюдения</h3>
+        <p><b>1.</b> Диагноз заболевания, по поводу которого пациент подлежит диспансерному наблюдению:
+            <b>{{data.patient.ill}}</b>. Код по МКБ-10: <b>{{data.patient.ICD}}</b></p>
+        <p><b>2.</b> Дата заполнения карты: <b>{{data.patient.dateOfCompletion}}</b></p>
+        <p><b>3.</b> Специализация врача: <b>{{data.doctor.specialty}}</b>. <b>4.</b> ФИО врача: <b>{{data.doctor.name}}
+                {{data.doctor.surname}} {{data.doctor.patronymic}}</b></p>
+        <p><b>5.</b> Дата установления диагноза: <b>{{data.patient.dateOfStartObservation}}.</b> Диагноз
+            установлен: <b>{{data.patient.order}}</b> <b>6.</b> Дата заполнения карты:
+            <b>{{data.patient.multiplisityOfFillingCard}}</b></p>
+        <p><b>7.</b> ФИО пациента <b>{{data.patient.surname}} {{data.patient.name}} {{data.patient.patronymic}}</b>
+            <b>8. Пол
+            </b>{{data.patient.sex}} <b>9. </b> Дата рождения <b>{{data.patient.birthDate}}</b></p>
+        <p><b>10.</b> Место регистрации <b>г. {{data.patient.city}}, ул. {{data.patient.street}} {{data.patient.house}}
+                - {{data.patient.room}}</b></p>
+        <div class="navPanel">
+            <h4>История наблюдения</h4>
+        </div>
+        <b>11. Даты посещений:</b>
+        <div class="appearance">
+            <div class="list">
+                <p>Назначено явиться:</p>
+                <ul class="list-group">
+                    {{#each data.history.nextMeeting}}
+                    <li class="list-group-item">{{this}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+            <div class="list">
+                <p>Фактические явки:</p>
+                <ul class="list-group">
+                    {{#each data.history.actualMeeting}}
+                    <li class="list-group-item">{{this}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+        <p class="mt-5"><b>12.</b> Изменения диагноза:</p>
+        <div class="change">
+            <div class="list">
+                <p>Дата</p>
+                <ul class="list-group">
+                    {{#each data.history.dateOfChangedDiagnosis}}
+                    <li class="list-group-item">{{this}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+            <div class="list">
+                <p>Формулировка</p>
+                <ul class="list-group">
+                    {{#each data.history.changeOfDiagnosis}}
+                    <li class="list-group-item">{{this}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+            <div class="list">
+                <p>МКБ-10</p>
+                <ul class="list-group">
+                    {{#each data.history.ICD}}
+                    <li class="list-group-item">{{this}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+        <p class="mt-5 mb-5"><b>13.</b> Сопутствующие заболевания: 
+        {{#each data.history.concomitantDisease}}
+            {{this}} |
+        {{/each}}
+        </p>
+        <p class="mt-5"><b>14.</b> Лечебно-профилактические мероприятия:</p>
+        <div class="action">
+            <div class="list">
+                <p>Мероприятия</p>
+                <ul class="list-group">
+                    {{#each data.history.action}}
+                    <li class="list-group-item">{{this}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+            <div class="list">
+                <p>Начало</p>
+                <ul class="list-group">
+                    {{#each data.history.actionStart}}
+                    <li class="list-group-item">{{this}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+            <div class="list">
+                <p>Окончание</p>
+                <ul class="list-group">
+                    {{#each data.history.actionEnd}}
+                    <li class="list-group-item">{{this}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

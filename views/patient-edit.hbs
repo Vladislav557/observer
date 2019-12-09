@@ -1,0 +1,156 @@
+<h3>{{data.patient.surname}} {{data.patient.name}} {{data.patient.patronymic}}</h3>
+<a href="/list/{{data.patient.id}}">Вернуться к просмотру карты</a>
+<span>||</span>
+<a href="/edit/basic/{{data.patient.id}}">Редактировать основную информацию</a>
+<div class="observeCard mt-5">
+    <h4>История наблюдения</h4>
+    <b>11. Даты посещений:</b>
+    <div class="appearance">
+        <div class="list">
+            <p>Назначено явиться:</p>
+            <ul class="list-group">
+                {{#each data.history.nextMeeting}}
+                <li class="list-group-item">
+                    {{this}}
+                </li>
+                {{/each}}
+                <li class="list-group-item panel">
+                    <form action="/edit/{{data.patient.id}}/nextMeeting/remove" method="POST">
+                        {{#if data.history.nextMeeting}}
+                        <button type="submit" class="btn btn-danger">Удалить</button>
+                        {{else}}
+                        <button type="submit" class="btn btn-danger" disabled>Удалить</button>
+                        {{/if}}
+                    </form>
+                    <form action="/edit/{{data.patient.id}}/nextMeeting/add" method="POST">
+                        <input type="text" name="nextMeeting">
+                        <button type="submit" class="btn btn-primary">Добавить</button>
+                    </form>
+                </li>
+            </ul>
+
+        </div>
+        <div class="list">
+            <p>Фактические явки:</p>
+            <ul class="list-group">
+                {{#each data.history.actualMeeting}}
+                <li class="list-group-item">
+                    {{this}}
+                </li>
+                {{/each}}
+                <li class="list-group-item panel">
+                    <form action="/edit/{{data.patient.id}}/actualMeeting/remove" method="POST">
+                        {{#if data.history.actualMeeting.length}}
+                        <button type="submit" class="btn btn-danger">Удалить</button>
+                        {{else}}
+                        <button type="submit" class="btn btn-danger" disabled>Удалить</button>
+                        {{/if}}
+                    </form>
+                    <form action="/edit/{{data.patient.id}}/actualMeeting/add" method="POST">
+                        <input type="text" name="actualMeeting">
+                        <button type="submit" class="btn btn-primary">Добавить</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <p class="mt-5"><b>12.</b> Изменения диагноза:</p>
+    <div class="change">
+        <div class="list">
+            <p>Дата</p>
+            <ul class="list-group">
+                {{#each data.history.dateOfChangedDiagnosis}}
+                <li class="list-group-item">{{this}}</li>
+                {{/each}}
+            </ul>
+        </div>
+        <div class="list">
+            <p>Формулировка</p>
+            <ul class="list-group">
+                {{#each data.history.changeOfDiagnosis}}
+                <li class="list-group-item">{{this}}</li>
+                {{/each}}
+            </ul>
+        </div>
+        <div class="list">
+            <p>МКБ-10</p>
+            <ul class="list-group">
+                {{#each data.history.ICD}}
+                <li class="list-group-item">{{this}}</li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+    <form action="/edit/{{data.patient.id}}/change/remove" class="change-field mt-1" method="POST">
+        {{#if data.history.dateOfChangedDiagnosis.length}}
+        <button type="submit" class="btn btn-danger">Удалить</button>
+        {{else}}
+        <button type="submit" class="btn btn-danger" disabled>Удалить</button>
+        {{/if}}
+    </form>
+    <form action="/edit/{{data.patient.id}}/change/add" method="POST" class="change-field mt-1">
+        <input type="text" name="dateOfChangedDiagnosis" placeholder="Дата" required>
+        <input type="text" name="changeOfDiagnosis" placeholder="Формулировка диагноза" required>
+        <input type="text" name="ICD" placeholder="МКБ-10" required>
+        <button type="submit" class="btn btn-primary mt-1">Добавить</button>
+    </form>
+    <p class="mt-5 mb-5"><b>13.</b> Сопутствующие заболевания:
+        {{#each data.history.concomitantDisease}}
+        <b>{{this}}</b> |
+        {{/each}}
+    </p>
+    <div class="concomitantDisease">
+        <form action="/edit/{{data.patient.id}}/concomitantDisease/add" method="POST">
+            <input type="text" name="concomitantDisease" placeholder="Добавить одно сопутствующее заболевание" required>
+            <button type="submit" class="btn btn-primary mr-1">Добавить</button>
+        </form>
+        <form action="/edit/{{data.patient.id}}/concomitantDisease/remove" method="POST">
+            {{#if data.history.concomitantDisease.length}}
+            <button type="submit" class="btn btn-danger">Удалить</button>
+            {{else}}
+            <button type="submit" class="btn btn-danger" disabled>Удалить</button>
+            {{/if}}
+        </form>
+    </div>
+    <p class="mt-5"><b>14.</b> Лечебно-профилактические мероприятия:</p>
+    <div class="action">
+        <div class="list">
+            <p>Мероприятия</p>
+            <ul class="list-group">
+                {{#each data.history.action}}
+                <li class="list-group-item">{{this}}</li>
+                {{/each}}
+            </ul>
+        </div>
+        <div class="list">
+            <p>Начало</p>
+            <ul class="list-group">
+                {{#each data.history.actionStart}}
+                <li class="list-group-item">{{this}}</li>
+                {{/each}}
+            </ul>
+        </div>
+        <div class="list">
+            <p>Окончание</p>
+            <ul class="list-group">
+                {{#each data.history.actionEnd}}
+                <li class="list-group-item">{{this}}</li>
+                {{/each}}
+            </ul>
+        </div>
+        
+    </div>
+    <form action="/edit/{{data.patient.id}}/action/remove" class="change-field mt-1" method="POST">
+        {{#if data.history.action.length}}
+        <button type="submit" class="btn btn-danger">Удалить</button>
+        {{else}}
+        <button type="submit" class="btn btn-danger" disabled>Удалить</button>
+        {{/if}}
+    </form>
+    <form action="/edit/{{data.patient.id}}/action/add" method="POST" class="change-field mt-1">
+        <input type="text" name="action" placeholder="Проведенные мероприятия" required>
+        <input type="text" name="actionStart" placeholder="Начало мероприятий" required>
+        <input type="text" name="actionEnd" placeholder="Окончание мероприятий" required>
+        <button type="submit" class="btn btn-primary mt-1">Добавить</button>
+    </form>
+</div>

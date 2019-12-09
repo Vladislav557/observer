@@ -1,0 +1,96 @@
+<div class="navPanel">
+            <h4>История болезни</h4>
+            <form action="/edit-appearance" method="GET">
+                <button type="submit">Редактировать</button>
+            </form>
+        </div>
+        <b>11. Даты посещений:</b>
+        <div class="appearance">
+            <div class="block">
+                <p>Назначенные даты явки:</p>
+                <ul>
+                    {{#each dateOfAppearance}}
+                    <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+            <div class="block">
+                <p>Фактические явки:</p>
+                <ul>
+                    {{#each patient.dateInFact}}
+                    <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+        <p class="mt-5"><b>12.</b> Изменения диагноза:</p>
+        <div class="change">
+            <div>
+                <b>Дата</b>
+                <ul>
+                    {{#each patient.dateChange}}
+                    <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+            <div>
+                <b>Формулировка</b>
+                <ul>
+                    {{#each patient.changeDs}}
+                    <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+            <div>
+                <b>МКБ-10</b>
+                <ul>
+                    {{#each patient.mkbChange}}
+                    <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+            <div>
+                <b>Врач</b>
+                <ul>
+                    {{#each patient.mkbChange}}
+                    <li>{{doctor}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+        <p class="mt-5 mb-5"><b>13.</b> Сопутствующие заболевания: {{concomitantDisease}}</p>
+        <p class="mt-5"><b>14.</b> Лечебно-профилактические мероприятия:</p>
+        <div class="action">
+            <div>
+                <b>Мероприятия</b>
+                <ul>
+                    {{#each patient.action}}
+                    <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+            <div>
+                <b>Дата начала</b>
+                <ul>
+                    {{#each patient.actionStart}}
+                    <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+            <div>
+                <b>Дата окончания</b>
+                <ul>
+                    {{#each patient.actionEnd}}
+                    <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+            <div>
+                <b>Врач</b>
+                <ul>
+                    {{#each patient.action}}
+                    <li>{{doctor}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>

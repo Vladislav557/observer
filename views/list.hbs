@@ -1,0 +1,19 @@
+<h1>{{title}}</h1>
+
+{{#if patients.length}}
+{{#each patients}}
+<div class="card mt-3" style="width: 30rem;">
+    <div class="card-body">
+        <h5 class="card-title">{{name}} {{surname}} {{patronymic}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{birthDate}}</h6>
+        <h6 class="card-subtitle mb-2 text-muted">ул. {{street}} {{house}} - {{room}}</h6>
+        <h6 class="card-subtitle mb-2 text-muted"> Диспансерная группа: {{ill}}</h6>
+        <div class="navPanel">
+            <a href="/list/{{id}}" target="blank">Просмотр</a>
+        </div>
+    </div>
+</div>
+{{/each}}
+{{else}}
+<p>Список пациентов пока пуст</p>
+{{/if}}

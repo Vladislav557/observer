@@ -1,0 +1,155 @@
+html{
+    height: 100%;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+header{
+    /* 0 flex-grow, 0 flex-shrink, auto flex-basis */
+    flex: 0 0 auto;
+}
+
+main{
+    /* 1 flex-grow, 0 flex-shrink, auto flex-basis */
+    flex: 1 0 auto;
+ }
+
+.footer {
+    height: 40px;
+    background: cadetblue;  
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
+  }
+
+.two-columns {
+    display: flex;
+    justify-content: space-around;
+}
+
+fieldset {
+    padding: 20px;
+    border: 2px solid rgb(177, 177, 177);
+    border-radius: 10px;
+}
+
+legend {
+    width: auto;
+    padding: 0 10px;
+}
+
+.w100 {
+    width: 100%;
+    padding: 10px;
+}
+
+.navPanel {
+    border-top: 2px solid rgb(190, 190, 190);
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-around; 
+    align-items: baseline;
+}
+
+.observeCard {
+    border: 2px solid rgba(114, 114, 114, 0.788);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.observeCard h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.observeCard p {
+    line-height: 10px;
+}
+
+.appearance,
+.change, 
+.action {
+    display: flex;
+    justify-content: left;
+    align-items: baseline;
+    padding: 10px;
+    border: 1px solid rgba(143, 143, 143, 0.452);
+    border-radius: 10px;
+}
+
+.list {
+    width: 100%;
+    text-align: center;
+}
+
+.appearance p,
+.change p, 
+.action p {
+    text-align: center;
+}
+
+.btn-link:hover {
+    text-decoration: none;
+    background-color: rgb(118, 168, 243);
+    color: black;
+}
+
+.btn-link {
+    width: 100%;
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid rgb(116, 160, 255);
+    border-radius: 5px;
+    text-align: center;
+    background-color: rgba(89, 195, 245, 0.671);
+    color: black;
+    margin: 1rem 0;
+
+}
+
+.panel {
+    display: flex;
+    justify-content: space-between;
+}
+
+.panel input {
+    width: 8rem;
+}
+
+.change-field {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.change-field input {
+    text-align: center;
+}
+
+.concomitantDisease input {
+    width: 25rem;
+}
+
+.concomitantDisease {
+    display: flex;
+}
+
+.fo {
+    background-color: rgba(172, 169, 169, 0.39);
+    padding: 2rem;
+}
+
+.btn-danger {
+    background-color: rgb(247, 109, 104);
+}
+
+.actionWithCard {
+    display: flex;
+}
+
+.actionWithCard a {
+    width: auto;
+}
