@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const handlebars = require('express-handlebars');
+const methodOerride = require('method-override');
 
 const Patient = require('./models/Patient');
 const Doctor = require('./models/Doctor');
@@ -39,6 +40,8 @@ server.use(async (req, res, next) => {
 server.use(express.static(path.join(__dirname, './public')));
 
 server.use(express.urlencoded({ extended: true }));
+
+server.use(methodOerride("_method"));
 
 server.use('/', homeRoute);
 server.use('/list', listRoute);

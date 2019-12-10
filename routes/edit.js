@@ -18,7 +18,7 @@ router.get('/:id', async (req, res) => {
     });
 });
 
-router.post('/:id/nextMeeting/add', async (req, res) => {
+router.put('/:id/nextMeeting/add', async (req, res) => {
     const { nextMeeting } = req.body;
     const id = req.params.id;
     const history = await History.findOne({patientId: id});
@@ -27,7 +27,7 @@ router.post('/:id/nextMeeting/add', async (req, res) => {
     res.redirect(`/edit/${id}`);
 }); 
 
-router.post('/:id/nextMeeting/remove', async (req, res) => {
+router.delete('/:id/nextMeeting/remove', async (req, res) => {
     const id = req.params.id;
     const history = await History.findOne({patientId: id});
     const newMeetings = [...history.nextMeeting.slice(0, history.nextMeeting.length - 1)];
@@ -35,7 +35,7 @@ router.post('/:id/nextMeeting/remove', async (req, res) => {
     res.redirect(`/edit/${id}`);
 }); 
 
-router.post('/:id/actualMeeting/add', async (req, res) => {
+router.put('/:id/actualMeeting/add', async (req, res) => {
     const { actualMeeting } = req.body;
     const id = req.params.id;
     const history = await History.findOne({patientId: id});
@@ -44,7 +44,7 @@ router.post('/:id/actualMeeting/add', async (req, res) => {
     res.redirect(`/edit/${id}`);
 }); 
 
-router.post('/:id/actualMeeting/remove', async (req, res) => {
+router.delete('/:id/actualMeeting/remove', async (req, res) => {
     const id = req.params.id;
     const history = await History.findOne({patientId: id});
     const newMeetings = [...history.actualMeeting.slice(0, history.actualMeeting.length - 1)];
@@ -52,7 +52,7 @@ router.post('/:id/actualMeeting/remove', async (req, res) => {
     res.redirect(`/edit/${id}`);
 });
 
-router.post('/:id/change/add', async (req, res) => {
+router.put('/:id/change/add', async (req, res) => {
     const id = req.params.id;
     const history = await History.findOne({patientId: id});
     const newData = [...history.dateOfChangedDiagnosis, req.body.dateOfChangedDiagnosis];
@@ -63,7 +63,7 @@ router.post('/:id/change/add', async (req, res) => {
     res.redirect(`/edit/${id}`);
 });
 
-router.post('/:id/change/remove', async (req, res) => {
+router.delete('/:id/change/remove', async (req, res) => {
     const id = req.params.id;
     const history = await History.findOne({patientId: id});
     const newDate = [...history.dateOfChangedDiagnosis.slice(0, history.dateOfChangedDiagnosis.length - 1)];
@@ -74,7 +74,7 @@ router.post('/:id/change/remove', async (req, res) => {
     res.redirect(`/edit/${id}`);
 });
 
-router.post('/:id/concomitantDisease/add', async (req, res) => {
+router.put('/:id/concomitantDisease/add', async (req, res) => {
     const id = req.params.id;
     const history = await History.findOne({patientId: id});
     const newData = [...history.concomitantDisease, req.body.concomitantDisease];
@@ -82,7 +82,7 @@ router.post('/:id/concomitantDisease/add', async (req, res) => {
     res.redirect(`/edit/${id}`);
 });
 
-router.post('/:id/concomitantDisease/remove', async (req, res) => {
+router.delete('/:id/concomitantDisease/remove', async (req, res) => {
     const id = req.params.id;
     const history = await History.findOne({patientId: id});
     const newData = [...history.concomitantDisease.slice(0, history.concomitantDisease.length - 1)];
@@ -90,7 +90,7 @@ router.post('/:id/concomitantDisease/remove', async (req, res) => {
     res.redirect(`/edit/${id}`);
 });
 
-router.post('/:id/action/add', async (req, res) => {
+router.put('/:id/action/add', async (req, res) => {
     const id = req.params.id;
     const history = await History.findOne({patientId: id});
     const newData = [...history.action, req.body.action];
@@ -101,7 +101,7 @@ router.post('/:id/action/add', async (req, res) => {
     res.redirect(`/edit/${id}`);
 });
 
-router.post('/:id/action/remove', async (req, res) => {
+router.delete('/:id/action/remove', async (req, res) => {
     const id = req.params.id;
     const history = await History.findOne({patientId: id});
     const newData = [...history.action.slice(0, history.action.length - 1)];

@@ -15,14 +15,14 @@
                 </li>
                 {{/each}}
                 <li class="list-group-item panel">
-                    <form action="/edit/{{data.patient.id}}/nextMeeting/remove" method="POST">
+                    <form action="/edit/{{data.patient.id}}/nextMeeting/remove?_method=DELETE" method="POST">
                         {{#if data.history.nextMeeting}}
                         <button type="submit" class="btn btn-danger">Удалить</button>
                         {{else}}
                         <button type="submit" class="btn btn-danger" disabled>Удалить</button>
                         {{/if}}
                     </form>
-                    <form action="/edit/{{data.patient.id}}/nextMeeting/add" method="POST">
+                    <form action="/edit/{{data.patient.id}}/nextMeeting/add?_method=PUT" method="POST">
                         <input type="text" name="nextMeeting">
                         <button type="submit" class="btn btn-primary">Добавить</button>
                     </form>
@@ -39,14 +39,14 @@
                 </li>
                 {{/each}}
                 <li class="list-group-item panel">
-                    <form action="/edit/{{data.patient.id}}/actualMeeting/remove" method="POST">
+                    <form action="/edit/{{data.patient.id}}/actualMeeting/remove?_method=DELETE" method="POST">
                         {{#if data.history.actualMeeting.length}}
                         <button type="submit" class="btn btn-danger">Удалить</button>
                         {{else}}
                         <button type="submit" class="btn btn-danger" disabled>Удалить</button>
                         {{/if}}
                     </form>
-                    <form action="/edit/{{data.patient.id}}/actualMeeting/add" method="POST">
+                    <form action="/edit/{{data.patient.id}}/actualMeeting/add?_method=PUT" method="POST">
                         <input type="text" name="actualMeeting">
                         <button type="submit" class="btn btn-primary">Добавить</button>
                     </form>
@@ -81,14 +81,14 @@
             </ul>
         </div>
     </div>
-    <form action="/edit/{{data.patient.id}}/change/remove" class="change-field mt-1" method="POST">
+    <form action="/edit/{{data.patient.id}}/change/remove?_method=DELETE" class="change-field mt-1" method="POST">
         {{#if data.history.dateOfChangedDiagnosis.length}}
         <button type="submit" class="btn btn-danger">Удалить</button>
         {{else}}
         <button type="submit" class="btn btn-danger" disabled>Удалить</button>
         {{/if}}
     </form>
-    <form action="/edit/{{data.patient.id}}/change/add" method="POST" class="change-field mt-1">
+    <form action="/edit/{{data.patient.id}}/change/add?_method=PUT" method="POST" class="change-field mt-1">
         <input type="text" name="dateOfChangedDiagnosis" placeholder="Дата" required>
         <input type="text" name="changeOfDiagnosis" placeholder="Формулировка диагноза" required>
         <input type="text" name="ICD" placeholder="МКБ-10" required>
@@ -100,11 +100,11 @@
         {{/each}}
     </p>
     <div class="concomitantDisease">
-        <form action="/edit/{{data.patient.id}}/concomitantDisease/add" method="POST">
+        <form action="/edit/{{data.patient.id}}/concomitantDisease/add?_method=PUT" method="POST">
             <input type="text" name="concomitantDisease" placeholder="Добавить одно сопутствующее заболевание" required>
             <button type="submit" class="btn btn-primary mr-1">Добавить</button>
         </form>
-        <form action="/edit/{{data.patient.id}}/concomitantDisease/remove" method="POST">
+        <form action="/edit/{{data.patient.id}}/concomitantDisease/remove?_method=DELETE" method="POST">
             {{#if data.history.concomitantDisease.length}}
             <button type="submit" class="btn btn-danger">Удалить</button>
             {{else}}
@@ -140,14 +140,14 @@
         </div>
         
     </div>
-    <form action="/edit/{{data.patient.id}}/action/remove" class="change-field mt-1" method="POST">
+    <form action="/edit/{{data.patient.id}}/action/remove?_method=DELETE" class="change-field mt-1" method="POST">
         {{#if data.history.action.length}}
         <button type="submit" class="btn btn-danger">Удалить</button>
         {{else}}
         <button type="submit" class="btn btn-danger" disabled>Удалить</button>
         {{/if}}
     </form>
-    <form action="/edit/{{data.patient.id}}/action/add" method="POST" class="change-field mt-1">
+    <form action="/edit/{{data.patient.id}}/action/add?_method=PUT" method="POST" class="change-field mt-1">
         <input type="text" name="action" placeholder="Проведенные мероприятия" required>
         <input type="text" name="actionStart" placeholder="Начало мероприятий" required>
         <input type="text" name="actionEnd" placeholder="Окончание мероприятий" required>
