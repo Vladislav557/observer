@@ -1,8 +1,11 @@
 <h3>{{data.patient.surname}} {{data.patient.name}} {{data.patient.patronymic}}</h3>
-<a href="/list/{{data.patient.id}}">Вернуться к просмотру карты</a>
-<span>||</span>
-<a href="/edit/basic/{{data.patient.id}}">Редактировать основную информацию</a>
-<div class="observeCard mt-5">
+<div class="actionWithCard"> 
+    <a href="/list/{{data.patient.id}}" class="btn-link">Просмотр карты</a>
+    <a href="/edit/{{data.patient.id}}" target="blank" class="btn-link active-link">Редактировать историю наблюдения</a>
+    <a href="/edit/basic/{{data.patient.id}}" class="btn-link">Редактировать основную информацию</a>
+    <a onClick="javascript:CallPrint('print-content');" title="Распечатать проект" class="btn-link">Распечатать</a>
+</div>
+<div class="observeCard">
     <h4>История наблюдения</h4>
     <b>11. Даты посещений:</b>
     <div class="appearance">

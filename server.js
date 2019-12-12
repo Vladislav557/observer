@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const handlebars = require('express-handlebars');
-const methodOerride = require('method-override');
+const methodOverride = require('method-override');
 
 const Patient = require('./models/Patient');
 const Doctor = require('./models/Doctor');
@@ -13,6 +13,7 @@ const addRoute = require('./routes/add');
 const listRoute = require('./routes/observerListRoute');
 const historyRoute = require('./routes/history');
 const patientRoute = require('./routes/edit');
+const searchRoute = require('./routes/search');
 
 const db = require('./config');
 
@@ -41,13 +42,14 @@ server.use(express.static(path.join(__dirname, './public')));
 
 server.use(express.urlencoded({ extended: true }));
 
-server.use(methodOerride("_method"));
+server.use(methodOverride("_method"));
 
 server.use('/', homeRoute);
 server.use('/list', listRoute);
 server.use('/add', addRoute);
 server.use('/history', historyRoute);
 server.use('/edit', patientRoute);
+server.use('/search', searchRoute);
 
 const PORT = process.env.PORT || 3000;
 

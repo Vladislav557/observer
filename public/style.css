@@ -47,11 +47,11 @@ legend {
 }
 
 .navPanel {
-    border-top: 2px solid rgb(190, 190, 190);
-    padding-top: 20px;
     display: flex;
-    justify-content: space-around; 
-    align-items: baseline;
+}
+
+.navPanel a {
+    width: 100%;
 }
 
 .observeCard {
@@ -66,7 +66,7 @@ legend {
 }
 
 .observeCard p {
-    line-height: 10px;
+    line-height: 15px;
 }
 
 .appearance,
@@ -98,8 +98,6 @@ legend {
 }
 
 .btn-link {
-    width: 100%;
-    display: inline-block;
     padding: 10px 20px;
     border: 1px solid rgb(116, 160, 255);
     border-radius: 5px;
@@ -146,10 +144,45 @@ legend {
     background-color: rgb(247, 109, 104);
 }
 
+.active-link {
+    background-color: rgb(118, 168, 243);
+}
+
 .actionWithCard {
+    font-size: 12px;
     display: flex;
+    justify-content: space-between;
+    align-items: baseline;
 }
 
 .actionWithCard a {
-    width: auto;
+    width: 100%;
 }
+
+
+.patient-edit-basic {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.patient-edit-basic input {
+    width: 20rem;
+    margin-right: 1rem;
+}
+
+.patient-edit-basic-column {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.card-body {
+    text-align: center;
+}
+
+.center {
+    text-align: center;
+}
+
+

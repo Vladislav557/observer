@@ -23,8 +23,8 @@
             {{/if}}
         </div>
     </div>
-    <form class="form-inline">
-        <input class="form-control mr-sm-2" type="search" placeholder="Введите ФИО" aria-label="Search">
+    <form class="form-inline" action="/search" method="POST">
+        <input class="form-control mr-sm-2" type="search" placeholder="Введите ФИО" aria-label="Search" name="search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск пациента</button>
     </form>
 </nav>  

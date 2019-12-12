@@ -30,7 +30,7 @@ const patientSchema = new Schema({
         require: true
     },
     house: {
-        type: Number,
+        type: String,
         require: true
     },
     room: {

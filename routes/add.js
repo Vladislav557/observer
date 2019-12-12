@@ -23,12 +23,13 @@ router.post('/', async (req, res) => {
 
   const patientId = patient.id;
 
-  const history = new History({patientId});
-
   try {
-    patient.save();
-    history.save();
-    res.redirect('/list');
+    await patient.save();
+    if (patientId) {
+      const history = new History({patientId});
+      await history.save();
+    }
+    res.redirect(`/list/${patientId}`);
   } catch (error) {
     console.log(error);
   }

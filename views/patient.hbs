@@ -1,5 +1,8 @@
+<h3>{{data.patient.surname}} {{data.patient.name}} {{data.patient.patronymic}}</h3>
 <div class="actionWithCard"> 
-    <a href="/edit/{{data.patient.id}}" target="blank" class="btn-link">Редактировать</a>
+    <a href="/list/{{data.patient.id}}" class="btn-link active-link ">Просмотр карты</a>
+    <a href="/edit/{{data.patient.id}}" target="blank" class="btn-link">Редактировать историю наблюдения</a>
+    <a href="/edit/basic/{{data.patient.id}}" class="btn-link">Редактировать основную информацию</a>
     <a onClick="javascript:CallPrint('print-content');" title="Распечатать проект" class="btn-link">Распечатать</a>
 </div>
 <div id="print-content">
@@ -100,4 +103,7 @@
             </div>
         </div>
     </div>
+    <form action="/edit/remove/{{data.patient.id}}?_method=DELETE" method="POST">
+        <button type="submit" class="btn btn-danger mt-2 w100">Удалить</button>
+    </form>
 </div>

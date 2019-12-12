@@ -1,0 +1,63 @@
+<h3>{{patient.surname}} {{patient.name}} {{patient.patronymic}}</h3>
+<div class="actionWithCard"> 
+    <a href="/list/{{patient.id}}" class="btn-link">Просмотр карты</a>
+    <a href="/edit/{{patient.id}}" target="blank" class="btn-link">Редактировать историю наблюдения</a>
+    <a href="/edit/basic/{{patient.id}}" class="btn-link active-link ">Редактировать основную информацию</a>
+    <a onClick="javascript:CallPrint('print-content');" title="Распечатать проект" class="btn-link">Распечатать</a>
+</div>
+<div class="observeCard">
+    <div class="two-columns">
+        <div class="first-column">
+            <p>Диагноз : <b>{{patient.ill}}</b>.</p>
+            <form action="/edit/basic/ill/{{patient.id}}?_method=PATCH" method="POST" class="patient-edit-basic">
+                <input type="text" name="ill" placeholder="Заменить диагноз">
+                <button type="submit" class="btn btn-primary">Заменить</button>
+            </form>
+            <p>Код по МКБ-10: <b>{{patient.ICD}}</b></p>
+            <form action="/edit/basic/ICD/{{patient.id}}?_method=PATCH" method="POST" class="patient-edit-basic">
+                <input type="text" name="ICD" placeholder="Заменить МКБ">
+                <button type="submit" class="btn btn-primary">Заменить</button>
+            </form>
+            <p>Дата заполнения карты: <b>{{patient.dateOfCompletion}}</b></p>
+            <form action="/edit/basic/dateOfCompletion/{{patient.id}}?_method=PATCH" method="POST" class="patient-edit-basic">
+                <input type="text" name="dateOfCompletion" placeholder="Изменить дату заполнения">
+                <button type="submit" class="btn btn-primary">Заменить</button>
+            </form>
+            <p>Дата установления диагноза: <b>{{patient.dateOfStartObservation}}.</b></p>
+            <form action="/edit/basic/dateOfStartObservation/{{patient.id}}?_method=PATCH" method="POST"
+                class="patient-edit-basic">
+                <input type="text" name="dateOfStartObservation" placeholder="Изменить дату начала наблюдения">
+                <button type="submit" class="btn btn-primary">Заменить</button>
+            </form>
+        </div>
+        <div class="second-column">
+            <p>Диагноз установлен: <b>{{patient.order}}</b></p>
+            <form action="/edit/basic/order/{{patient.id}}?_method=PATCH" method="POST" class="patient-edit-basic">
+                <input type="text" name="order" placeholder="Изменить порядок">
+                <button type="submit" class="btn btn-primary">Заменить</button>
+            </form>
+            <p>Дата заполнения карты: <b>{{patient.multiplisityOfFillingCard}}</b></p>
+            <form action="/edit/basic/multiplisityOfFillingCard/{{patient.id}}?_method=PATCH" method="POST"
+                class="patient-edit-basic">
+                <input type="text" name="multiplisityOfFillingCard" placeholder="Изменить дату заполнения карты">
+                <button type="submit" class="btn btn-primary">Заменить</button>
+            </form>
+            <p>Телефон: <b>{{patient.phone}}</b></p>
+            <form action="/edit/basic/phone/{{patient.id}}?_method=PATCH" method="POST" class="patient-edit-basic">
+                <input type="text" name="phone" placeholder="Изменить номер">
+                <button type="submit" class="btn btn-primary">Заменить</button>
+            </form>
+        </div>
+    </div>
+    <hr>
+    <p>Место регистрации <b>г. {{patient.city}}, ул. {{patient.street}} {{patient.house}} - {{patient.room}}</b></p>
+    <form action="/edit/basic/adres/{{patient.id}}?_method=PATCH" method="POST" class="patient-edit-basic-column">
+
+        <input type="text" name="city" placeholder="Город" required>
+        <input type="text" name="street" placeholder="Улица" required>
+        <input type="text" name="house" placeholder="Дом" required>
+        <input type="text" name="room" placeholder="Квартира" required>
+
+        <button type="submit" class="btn btn-primary">Заменить</button>
+    </form>
+</div>

@@ -112,4 +112,95 @@ router.delete('/:id/action/remove', async (req, res) => {
     res.redirect(`/edit/${id}`);
 });
 
+router.get('/basic/:id', async (req, res) => {
+    const id = req.params.id;
+    const patient = await Patient.findById(id);
+    res.render('patient-edit-basic', {
+        patient
+    });
+});
+
+router.patch('/basic/ill/:id', async (req, res) => {
+    const id = req.params.id;
+    const ill = req.body.ill || "Вы забыли указать болезнь";
+    await Patient
+        .findById({ _id: id })
+        .updateOne({ ill });
+    
+    res.redirect(`/edit/basic/${id}`);
+});
+
+router.patch('/basic/ICD/:id', async (req, res) => {
+    const id = req.params.id;
+    const ICD = req.body.ICD || "Вы забыли указать болезнь";
+    await Patient
+        .findById({ _id: id })
+        .updateOne({ ICD });
+    
+    res.redirect(`/edit/basic/${id}`);
+});
+
+router.patch('/basic/dateOfCompletion/:id', async (req, res) => {
+    const id = req.params.id;
+    const dateOfCompletion = req.body.dateOfCompletion || "Вы забыли указать болезнь";
+    await Patient
+        .findById({ _id: id })
+        .updateOne({ dateOfCompletion });
+    
+    res.redirect(`/edit/basic/${id}`);
+});
+router.patch('/basic/dateOfStartObservation/:id', async (req, res) => {
+    const id = req.params.id;
+    const dateOfStartObservation = req.body.dateOfStartObservation || "Вы забыли указать болезнь";
+    await Patient
+        .findById({ _id: id })
+        .updateOne({ dateOfStartObservation });
+    
+    res.redirect(`/edit/basic/${id}`);
+});
+router.patch('/basic/order/:id', async (req, res) => {
+    const id = req.params.id;
+    const order = req.body.order || "Вы забыли указать болезнь";
+    await Patient
+        .findById({ _id: id })
+        .updateOne({ order });
+    
+    res.redirect(`/edit/basic/${id}`);
+});
+router.patch('/basic/multiplisityOfFillingCard/:id', async (req, res) => {
+    const id = req.params.id;
+    const multiplisityOfFillingCard = req.body.multiplisityOfFillingCard|| "Вы забыли указать болезнь";
+    await Patient
+        .findById({ _id: id })
+        .updateOne({ multiplisityOfFillingCard });
+    
+    res.redirect(`/edit/basic/${id}`);
+});
+router.patch('/basic/phone/:id', async (req, res) => {
+    const id = req.params.id;
+    const phone = req.body.phone || "Вы забыли указать болезнь";
+    await Patient
+        .findById({ _id: id })
+        .updateOne({ phone });
+    
+    res.redirect(`/edit/basic/${id}`);
+});
+
+router.patch('/basic/adres/:id', async (req, res) => {
+    const id = req.params.id;
+    const { city, street, house, room } = req.body;
+    await Patient
+        .findById({ _id: id })
+        .updateOne({ city, street, house, room });
+    
+    res.redirect(`/edit/basic/${id}`);
+});
+
+router.delete('/remove/:id', async (req, res) => {
+    const id = req.params.id;
+    await Patient.findByIdAndDelete({_id: id});
+    await History.findOneAndDelete({patientId: id});
+    res.redirect('/list');
+});
+
 module.exports = router;
