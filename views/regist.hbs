@@ -1,0 +1,34 @@
+{{#if error}}
+  <div class="alert alert-danger" role="alert">
+    {{error}}
+  </div>
+{{/if}}
+
+<form action="/regist" method="POST">
+  <div class="form-group">
+    <label for="codeReg">Введите ваш код</label>
+    <input type="text" class="form-control" id="codeReg" name="code" placeholder="Введите тот код, который вы ставите в талонах" required>
+  </div>
+  <div class="form-group">
+    <label for="specialtyReg">Введите свою специальность </label>
+    <input type="text" class="form-control" name="specialty" id="specialtyReg" required>
+  </div>
+  <div class="form-group">
+    <label for="nameReg">Введите имя</label>
+    <input type="text" class="form-control" name="name" id="nameReg" required>
+  </div>
+  <div class="form-group">
+    <label for="surnameReg">Введите фамилию</label>
+    <input type="text" class="form-control" id="surnameReg" name="surname" required>
+  </div>
+    <div class="form-group">
+      <label for="patronymicReg">Введите отчество</label>
+      <input type="text" class="form-control" id="patronymicReg" name="patronymic" required>
+    </div>
+    <div class="form-group">
+      <label for="passwordReg">Придумайте пароль</label>
+      <input type="password" class="form-control" id="passwordReg" name="password" required>
+    </div>
+    <input type="hidden" name="_csrf" value="{{csrf}}">
+    <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+</form>

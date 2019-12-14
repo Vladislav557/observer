@@ -1,0 +1,18 @@
+{{#if error}}
+  <div class="alert alert-danger" role="alert">
+    {{error}}
+  </div>
+{{/if}}
+
+<form action="/auth" method="POST">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Введите ваш код</label>
+    <input type="text" class="form-control" id="code" name="code" placeholder="Введите тот код, который вы ставите в талонах" required>
+  </div>
+  <div class="form-group">
+    <label for="password">Пароль</label>
+    <input type="password" class="form-control" id="password" name="password" placeholder="Введите ваш пароль" required>
+  </div>
+  <input type="hidden" name="_csrf" value="{{csrf}}">
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

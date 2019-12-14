@@ -1,9 +1,11 @@
 const { Router } = require('express');
 const Patient = require('../models/Patient');
 
+const authMiddleware = require('../middleware/auth');
+
 const router = Router();
 
-router.post('/', async (req, res) => {
+router.post('/', authMiddleware, async (req, res) => {
     const data = req.body.search;
     const modData = data.split(' ');
     const patient = {

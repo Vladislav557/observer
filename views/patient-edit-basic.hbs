@@ -11,22 +11,26 @@
             <p>Диагноз : <b>{{patient.ill}}</b>.</p>
             <form action="/edit/basic/ill/{{patient.id}}?_method=PATCH" method="POST" class="patient-edit-basic">
                 <input type="text" name="ill" placeholder="Заменить диагноз">
+                <input type="hidden" name="_csrf" value="{{csrf}}">
                 <button type="submit" class="btn btn-primary">Заменить</button>
             </form>
             <p>Код по МКБ-10: <b>{{patient.ICD}}</b></p>
             <form action="/edit/basic/ICD/{{patient.id}}?_method=PATCH" method="POST" class="patient-edit-basic">
                 <input type="text" name="ICD" placeholder="Заменить МКБ">
+                <input type="hidden" name="_csrf" value="{{csrf}}">
                 <button type="submit" class="btn btn-primary">Заменить</button>
             </form>
             <p>Дата заполнения карты: <b>{{patient.dateOfCompletion}}</b></p>
             <form action="/edit/basic/dateOfCompletion/{{patient.id}}?_method=PATCH" method="POST" class="patient-edit-basic">
                 <input type="text" name="dateOfCompletion" placeholder="Изменить дату заполнения">
+                <input type="hidden" name="_csrf" value="{{csrf}}">
                 <button type="submit" class="btn btn-primary">Заменить</button>
             </form>
             <p>Дата установления диагноза: <b>{{patient.dateOfStartObservation}}.</b></p>
             <form action="/edit/basic/dateOfStartObservation/{{patient.id}}?_method=PATCH" method="POST"
                 class="patient-edit-basic">
                 <input type="text" name="dateOfStartObservation" placeholder="Изменить дату начала наблюдения">
+                <input type="hidden" name="_csrf" value="{{csrf}}">
                 <button type="submit" class="btn btn-primary">Заменить</button>
             </form>
         </div>
@@ -34,17 +38,20 @@
             <p>Диагноз установлен: <b>{{patient.order}}</b></p>
             <form action="/edit/basic/order/{{patient.id}}?_method=PATCH" method="POST" class="patient-edit-basic">
                 <input type="text" name="order" placeholder="Изменить порядок">
+                <input type="hidden" name="_csrf" value="{{csrf}}">
                 <button type="submit" class="btn btn-primary">Заменить</button>
             </form>
             <p>Дата заполнения карты: <b>{{patient.multiplisityOfFillingCard}}</b></p>
             <form action="/edit/basic/multiplisityOfFillingCard/{{patient.id}}?_method=PATCH" method="POST"
                 class="patient-edit-basic">
                 <input type="text" name="multiplisityOfFillingCard" placeholder="Изменить дату заполнения карты">
+                <input type="hidden" name="_csrf" value="{{csrf}}">
                 <button type="submit" class="btn btn-primary">Заменить</button>
             </form>
             <p>Телефон: <b>{{patient.phone}}</b></p>
             <form action="/edit/basic/phone/{{patient.id}}?_method=PATCH" method="POST" class="patient-edit-basic">
                 <input type="text" name="phone" placeholder="Изменить номер">
+                <input type="hidden" name="_csrf" value="{{csrf}}">
                 <button type="submit" class="btn btn-primary">Заменить</button>
             </form>
         </div>
@@ -57,7 +64,7 @@
         <input type="text" name="street" placeholder="Улица" required>
         <input type="text" name="house" placeholder="Дом" required>
         <input type="text" name="room" placeholder="Квартира" required>
-
+        <input type="hidden" name="_csrf" value="{{csrf}}">
         <button type="submit" class="btn btn-primary">Заменить</button>
     </form>
 </div>

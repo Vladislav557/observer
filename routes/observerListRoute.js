@@ -4,20 +4,23 @@ const Patient = require('../models/Patient');
 const Doctor = require('../models/Doctor');
 const History = require('../models/History');
 
+const authMiddleware = require('../middleware/auth');
+
 const router = Router();
 
-router.get('/', async (req, res) => {
-    const patients = await Patient.find();
+router.get('/', authMiddleware, async (req, res) => {
+    const patients = await Patient.find({ doctorId: req.user._id });
 
     res.render('list', {
+        isList: true,
         title: 'Список пациентов',
         patients
     });
 });
 
-router.get('/:id', async (req, res) => {    
+router.get('/:id', authMiddleware, async (req, res) => {    
     const patient = await Patient.findById(req.params.id);
-    const doctor = await Doctor.findById("5dec1cdb3e7a6e15891d99a6");
+    const doctor = await Doctor.findById(req.user._id);
 
     const patientId = patient.id;
 

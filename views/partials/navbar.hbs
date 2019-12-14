@@ -7,19 +7,33 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
             {{#if isHome}}
-            <a class="nav-item nav-link active" href="/">Главная<span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link active" href="/">Главная<span class="sr-only">(current)</span></a>
             {{else}}
-            <a class="nav-item nav-link" href="/">Главная</a>
+                <a class="nav-item nav-link" href="/">Главная</a>
             {{/if}}
-            {{#if isList}}
-            <a class="nav-item nav-link active" href="/list">Список пациентов<span class="sr-only">(current)</span></a>
+            {{#if isAuth}}
+                {{#if isList}}
+                    <a class="nav-item nav-link active" href="/list">Список пациентов<span class="sr-only">(current)</span></a>
+                {{else}}
+                    <a class="nav-item nav-link" href="/list">Список пациентов</a>
+                {{/if}}
+                {{#if isAdd}}
+                    <a class="nav-item nav-link active" href="/add">Добавить пациента<span class="sr-only">(current)</span></a>
+                {{else}}
+                    <a class="nav-item nav-link" href="/add">Добавить пациента</a>
+                {{/if}}
+                <a class="nav-item nav-link" href="/auth/logout">Выйти</a>
             {{else}}
-            <a class="nav-item nav-link" href="/list">Список пациентов</a>
-            {{/if}}
-            {{#if isAdd}}
-            <a class="nav-item nav-link active" href="/add">Добавить пациента<span class="sr-only">(current)</span></a>
-            {{else}}
-            <a class="nav-item nav-link" href="/add">Добавить пациента</a>
+                {{#if isRegist}}
+                    <a class="nav-item nav-link active" href="/regist">Регистрация<span class="sr-only">(current)</span></a>
+                {{else}}
+                    <a class="nav-item nav-link" href="/regist">Регистрация</a>
+                {{/if}}
+                {{#if isAuthenticated}}
+                    <a class="nav-item nav-link active" href="/auth">Авторизация<span class="sr-only">(current)</span></a>
+                {{else}}
+                    <a class="nav-item nav-link" href="/auth">Авторизация</a>
+                {{/if}}
             {{/if}}
         </div>
     </div>
@@ -27,4 +41,4 @@
         <input class="form-control mr-sm-2" type="search" placeholder="Введите ФИО" aria-label="Search" name="search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск пациента</button>
     </form>
-</nav>  
+</nav>
