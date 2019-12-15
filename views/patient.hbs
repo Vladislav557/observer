@@ -104,6 +104,7 @@
         </div>
     </div>
     <form action="/edit/remove/{{data.patient.id}}?_method=DELETE" method="POST">
+        <input type="hidden" name="_csrf" value="{{csrf}}">
         <button type="submit" class="btn btn-danger mt-2 w100">Удалить</button>
     </form>
 </div>

@@ -5,22 +5,28 @@ const authMiddleware = require('../middleware/auth');
 
 const router = Router();
 
+const toUpperFirstChar = (str) => {
+    return str[0].toUpperCase() + str.slice(1);
+}
+
 router.post('/', authMiddleware, async (req, res) => {
     const data = req.body.search;
     const modData = data.split(' ');
-    const patient = {
-        name: modData[1],
-        surname: modData[0],
-        patronymic: modData[2]
+    const candidate = {
+        name: toUpperFirstChar(modData[1].toLowerCase()),
+        surname: toUpperFirstChar(modData[0].toLowerCase()),
+        patronymic: toUpperFirstChar(modData[2].toLowerCase())
     };
 
-    const patients = await Patient.find(patient);
+    console.log(candidate)
 
-
+    const patients = await Patient.find(candidate);
+        
+    
     res.render('list', {
         title: 'Список пациентов',
         patients
-    })
+    });
 })
 
 module.exports = router;

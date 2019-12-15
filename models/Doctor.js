@@ -7,19 +7,19 @@ const doctorSchema = new Schema({
     },
     name: {
         type: String,
-        require: true
+        required: true
     },
     surname: {
         type: String,
-        require: true
+        required: true
     },
     patronymic: {
         type: String,
-        require: true
+        required: true
     },
     specialty: {
         type: String,
-        require: true
+        required: true
     },
     password: {
         type: String,

@@ -3,35 +3,35 @@ const { Schema, model } = require('mongoose');
 const patientSchema = new Schema({
     name: {
         type: String,
-        require: true
+        required: true
     },
     surname: {
         type: String,
-        require: true
+        required: true
     },
     patronymic: {
         type: String,
-        require: true
+        required: true
     },
     sex: {
         type: String,
-        require: true,
+        required: true,
     },
     birthDate: {
         type: String,
-        require: true
+        required: true
     },
     city: {
         type: String,
-        require: true
+        required: true
     },
     street: {
         type: String,
-        require: true
+        required: true
     },
     house: {
         type: String,
-        require: true
+        required: true
     },
     room: {
         type: Number
@@ -41,11 +41,11 @@ const patientSchema = new Schema({
     },
     ill: {
         type: String,
-        require: true
+        required: true
     },
     ICD: {
         type: String,
-        require: true
+        required: true
     },
     order: {
         type: String,
@@ -53,7 +53,7 @@ const patientSchema = new Schema({
     },
     dateOfStartObservation: {
         type: String,
-        require: true
+        required: true
     },
     dateOfCompletion: {
         type: String,

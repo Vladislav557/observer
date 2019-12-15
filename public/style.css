@@ -85,6 +85,10 @@ legend {
     text-align: center;
 }
 
+.list li {
+    min-height: 70px;
+}
+
 .appearance p,
 .change p, 
 .action p {
@@ -185,4 +189,6 @@ legend {
     text-align: center;
 }
 
-
+input[type="date"] {
+    border-radius: 5px;
+}

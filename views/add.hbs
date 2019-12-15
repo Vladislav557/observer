@@ -6,26 +6,26 @@
         <div class="two-columns">
             <div class="first-column">
                 <div class="form-group">
-                    <input class="mr-5" type="text" name="name" id="patientName" placeholder="Введите имя">
+                    <input class="mr-5" type="text" name="name" id="patientName" placeholder="Введите имя" required>
                     <label for="patientName">Имя</label>
                 </div>
                 <div class="form-group">
-                    <input class="mr-5" type="text" name="surname" id="patientSurname" placeholder="Введите фамилию">
+                    <input class="mr-5" type="text" name="surname" id="patientSurname" placeholder="Введите фамилию" required>
                     <label for="patientSurname">Фамилия</label>
                 </div>
                 <div class="form-group">
                     <input class="mr-5" type="text" name="patronymic" id="patientPatronymic"
-                        placeholder="Введите отчество">
+                        placeholder="Введите отчество" required>
                     <label for="patientPatronymic">Отчество</label>
                 </div>
                 <div class="form-group">
-                    <input class="mr-5" type="text" name="birthDate" id="birthDate" placeholder="Введите дату рождения">
+                    <input class="mr-5" type="date" name="birthDate" id="birthDate" placeholder="Введите дату рождения" required>
                     <label for="birthDate">Введите дату рождения</label>
                 </div>
                 Пол
                 <div class="col-sm-10">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="sex" id="inlineRadioSex1" value="Женский">
+                        <input class="form-check-input" type="radio" name="sex" id="inlineRadioSex1" value="Женский" required>
                         <label class="form-check-label" for="inlineRadioSex1">Женский</label>
                     </div>
                     <div class="form-check form-check-inline">
@@ -36,7 +36,7 @@
             </div>
             <div class="second-column">
                 <div class="form-group">
-                    <input class="mr-5" type="text" name="city" id="city" placeholder="Введите город">
+                    <input class="mr-5" type="text" name="city" id="city" placeholder="Введите город" required>
                     <label for="city">Город</label>
                 </div>
                 <div class="form-group">
@@ -44,7 +44,7 @@
                     <label for="street">Улица</label>
                 </div>
                 <div class="form-group">
-                    <input class="mr-5" type="text" name="house" id="house" placeholder="Введите номер дома">
+                    <input class="mr-5" type="text" name="house" id="house" placeholder="Введите номер дома" required>
                     <label for="house">Дом</label>
                 </div>
                 <div class="form-group">
@@ -63,17 +63,17 @@
         <div class="two-columns">
             <div class="first-column">
                 <div class="form-group">
-                    <input class="mr-5" type="text" name="ill" id="ill" placeholder="Введите диагноз">
+                    <input class="mr-5" type="text" name="ill" id="ill" placeholder="Введите диагноз" required>
                     <label for="ill">Диагноз</label>
                 </div>
                 <div class="form-group">
-                    <input class="mr-5" type="text" name="ICD" id="ICD" placeholder="Введите код по МКБ-10">
+                    <input class="mr-5" type="text" name="ICD" id="ICD" placeholder="Введите код по МКБ-10" required>
                     <label for="ICD">МКБ-10</label>
                 </div>
                 Порядок установления
                 <div class="col-sm-10">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="order" id="inlineRadio1" value="впервые">
+                        <input class="form-check-input" type="radio" name="order" id="inlineRadio1" value="впервые" required>
                         <label class="form-check-label" for="inlineRadio1">Первично</label>
                     </div>
                     <div class="form-check form-check-inline">
@@ -84,18 +84,18 @@
             </div>
             <div class="second-column">
                 <div class="form-group">
-                    <input class="mr-5" type="text" name="dateOfCompletion" id="dateOfCompletion"
-                        placeholder="Дата установления диагноза">
+                    <input class="mr-5" type="date" name="dateOfCompletion" id="dateOfCompletion"
+                        placeholder="Дата установления диагноза" required>
                     <label for="dateOfCompletion">Дата выявления</label>
                 </div>
                 <div class="form-group">
-                    <input class="mr-5" type="text" name="dateOfStartObservation" id="dateOfStartObservation"
-                        placeholder="Дата начала наблюдения">
+                    <input class="mr-5" type="date" name="dateOfStartObservation" id="dateOfStartObservation"
+                        placeholder="Дата начала наблюдения" required>
                     <label for="dateOfStartObservation">Начало наблюдения</label>
                 </div>
                 <div class="form-group">
-                    <input class="mr-5" type="text" name="multiplisityOfFillingCard" id="multiplisityOfFillingCard"
-                        placeholder="Дата заполнения карты">
+                    <input class="mr-5" type="date" name="multiplisityOfFillingCard" id="multiplisityOfFillingCard"
+                        placeholder="Дата заполнения карты" required>
                     <label for="multiplisityOfFillingCard">Дата заполнения</label>
                 </div>
             </div>
