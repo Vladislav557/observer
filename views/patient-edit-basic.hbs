@@ -22,14 +22,14 @@
             </form>
             <p>Дата заполнения карты: <b>{{patient.dateOfCompletion}}</b></p>
             <form action="/edit/basic/dateOfCompletion/{{patient.id}}?_method=PATCH" method="POST" class="patient-edit-basic">
-                <input type="date" name="dateOfCompletion" placeholder="Изменить дату заполнения">
+                <input type="text" name="dateOfCompletion" placeholder="Изменить дату заполнения" onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}">
                 <input type="hidden" name="_csrf" value="{{csrf}}">
                 <button type="submit" class="btn btn-primary">Заменить</button>
             </form>
             <p>Дата установления диагноза: <b>{{patient.dateOfStartObservation}}.</b></p>
             <form action="/edit/basic/dateOfStartObservation/{{patient.id}}?_method=PATCH" method="POST"
                 class="patient-edit-basic">
-                <input type="date" name="dateOfStartObservation" placeholder="Изменить дату начала наблюдения">
+                <input type="text" name="dateOfStartObservation" placeholder="Изменить дату начала наблюдения" onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}">
                 <input type="hidden" name="_csrf" value="{{csrf}}">
                 <button type="submit" class="btn btn-primary">Заменить</button>
             </form>
@@ -44,7 +44,7 @@
             <p>Дата заполнения карты: <b>{{patient.multiplisityOfFillingCard}}</b></p>
             <form action="/edit/basic/multiplisityOfFillingCard/{{patient.id}}?_method=PATCH" method="POST"
                 class="patient-edit-basic">
-                <input type="date" name="multiplisityOfFillingCard" placeholder="Изменить дату заполнения карты">
+                <input type="text" name="multiplisityOfFillingCard" placeholder="Изменить дату заполнения карты" onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}">
                 <input type="hidden" name="_csrf" value="{{csrf}}">
                 <button type="submit" class="btn btn-primary">Заменить</button>
             </form>

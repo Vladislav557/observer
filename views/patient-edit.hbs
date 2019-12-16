@@ -27,7 +27,7 @@
                         {{/if}}
                     </form>
                     <form action="/edit/{{data.patient.id}}/nextMeeting/add?_method=PUT" method="POST">
-                        <input type="date" name="nextMeeting">
+                        <input type="text" name="nextMeeting" onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}">
                         <input type="hidden" name="_csrf" value="{{csrf}}">
                         <button type="submit" class="btn btn-primary">Добавить</button>
                     </form>
@@ -53,7 +53,7 @@
                         {{/if}}
                     </form>
                     <form action="/edit/{{data.patient.id}}/actualMeeting/add?_method=PUT" method="POST">
-                        <input type="date" name="actualMeeting">
+                        <input type="text" name="actualMeeting" onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}">
                         <input type="hidden" name="_csrf" value="{{csrf}}">
                         <button type="submit" class="btn btn-primary">Добавить</button>
                     </form>
@@ -97,7 +97,7 @@
         {{/if}}
     </form>
     <form action="/edit/{{data.patient.id}}/change/add?_method=PUT" method="POST" class="change-field mt-1">
-        <input type="date" name="dateOfChangedDiagnosis" placeholder="Дата" required>
+        <input type="text" name="dateOfChangedDiagnosis" placeholder="Дата" onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}" required>
         <input type="text" name="changeOfDiagnosis" placeholder="Формулировка диагноза" required>
         <input type="text" name="ICD" placeholder="МКБ-10" required>
         <input type="hidden" name="_csrf" value="{{csrf}}">
@@ -162,8 +162,8 @@
     <form action="/edit/{{data.patient.id}}/action/add?_method=PUT" method="POST" class="change-field mt-1">
         <input type="hidden" name="_csrf" value="{{csrf}}">
         <input type="text" name="action" placeholder="Проведенные мероприятия" required>
-        <input type="date" name="actionStart" placeholder="Начало мероприятий" required>
-        <input type="date" name="actionEnd" placeholder="Окончание мероприятий" required>
+        <input type="text" name="actionStart" placeholder="Начало мероприятий" required onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}">
+        <input type="text" name="actionEnd" placeholder="Окончание мероприятий" required onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}">
         <button type="submit" class="btn btn-primary mt-1">Добавить</button>
     </form>
 </div>

@@ -19,7 +19,7 @@
                     <label for="patientPatronymic">Отчество</label>
                 </div>
                 <div class="form-group">
-                    <input class="mr-5" type="date" name="birthDate" id="birthDate" placeholder="Введите дату рождения" required>
+                    <input class="mr-5" type="text" name="birthDate" id="birthDate" placeholder="Введите дату рождения" required onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}">
                     <label for="birthDate">Введите дату рождения</label>
                 </div>
                 Пол
@@ -84,18 +84,18 @@
             </div>
             <div class="second-column">
                 <div class="form-group">
-                    <input class="mr-5" type="date" name="dateOfCompletion" id="dateOfCompletion"
-                        placeholder="Дата установления диагноза" required>
+                    <input class="mr-5" type="text" name="dateOfCompletion" id="dateOfCompletion"
+                        placeholder="Дата установления диагноза" onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}" required>
                     <label for="dateOfCompletion">Дата выявления</label>
                 </div>
                 <div class="form-group">
-                    <input class="mr-5" type="date" name="dateOfStartObservation" id="dateOfStartObservation"
-                        placeholder="Дата начала наблюдения" required>
+                    <input class="mr-5" type="text" name="dateOfStartObservation" id="dateOfStartObservation"
+                        placeholder="Дата начала наблюдения" onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}" required>
                     <label for="dateOfStartObservation">Начало наблюдения</label>
                 </div>
                 <div class="form-group">
-                    <input class="mr-5" type="date" name="multiplisityOfFillingCard" id="multiplisityOfFillingCard"
-                        placeholder="Дата заполнения карты" required>
+                    <input class="mr-5" type="text" name="multiplisityOfFillingCard" id="multiplisityOfFillingCard"
+                        placeholder="Дата заполнения карты" onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}" required>
                     <label for="multiplisityOfFillingCard">Дата заполнения</label>
                 </div>
             </div>

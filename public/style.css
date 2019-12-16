@@ -203,3 +203,8 @@ tr, td, th {
     padding: 10px;
     border: 1px solid grey;
 }
+
+input[type="date"] {
+    width: 212px;
+    margin: 0 auto;
+}
