@@ -5,6 +5,7 @@ body{
     display: flex;
     flex-direction: column;
     height: 100%;
+    background-color: rgba(228, 228, 228, 0.664);
 }
 
 header{
@@ -103,10 +104,10 @@ legend {
 
 .btn-link {
     padding: 10px 20px;
-    border: 1px solid rgb(116, 160, 255);
+    border: 1px solid#0062cc;
     border-radius: 5px;
     text-align: center;
-    background-color: rgba(89, 195, 245, 0.671);
+    background-color: #0069d9;
     color: black;
     margin: 1rem 0;
 
@@ -141,7 +142,7 @@ legend {
 
 .fo {
     background-color: rgba(2, 2, 2, 0.658);
-    padding: 2rem;
+    padding: .75rem;
     border-top: 5px solid gray;
     color: #fff;
 }
